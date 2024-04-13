@@ -33,3 +33,6 @@ jobs:
       run: |
         docker build -t 737432160967.dkr.ecr.eu-north-1.amazonaws.com/ctse:latest .
         docker push 737432160967.dkr.ecr.eu-north-1.amazonaws.com/ctse:latest
+    - name: Update ECS Service
+      run: |
+        aws ecs update-service --cluster ctseCluster --service ctseService --force-new-deployment
